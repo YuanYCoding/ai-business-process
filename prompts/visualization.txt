@@ -1,0 +1,43 @@
+你是一个数据结构化专家。请将以下业务流程Markdown文档转换为结构化的JSON树形数据。
+
+## 输入
+{markdown}
+
+## 输出格式
+请输出以下JSON格式：
+
+```json
+{
+  "root": {
+    "title": "根节点标题（业务名称）",
+    "type": "start",
+    "children": [
+      {
+        "title": "节点标题（如：Q1: 开场白话术内容前20字）",
+        "type": "question|script|decision|action|end",
+        "condition": "分支条件（可选）",
+        "description": "完整话术或说明",
+        "children": [...]
+      }
+    ]
+  }
+}
+```
+
+## 节点类型说明
+- "start": 起始节点（根节点）
+- "question": 问题节点（AI提问）
+- "script": 话术节点（包含话术内容）
+- "decision": 决策节点（客户选择分支）
+- "action": 动作节点（如转人工）
+- "end": 结束节点
+
+## 规则
+1. 每个节点必须有title字段
+2. type字段根据节点内容判断
+3. 分支节点使用condition字段记录分支条件
+4. 话术节点使用description字段记录完整话术
+5. 保持Markdown文档的层级结构
+6. 确保JSON格式正确，可以被直接解析
+
+请输出完整的JSON结构。
